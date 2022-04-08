@@ -1,0 +1,32 @@
+div.checkbar-container {
+  float: none !important;
+}
+
+div.checkbar-container .search-input, div.checkbar-container .selected-btn {
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.checkbar-container {
+  -webkit-box-shadow: 0px 0px 1px #888888;
+  -moz-box-shadow: 0px 0px 1px #888888;
+  -o-box-shadow: 0px 0px 1px #888888;
+  box-shadow: 0px 0px 1px #888888;
+  margin: 1% 0px;
+  height: 83px;
+  padding-left: 10px;
+}
+div.checkbar-container .search-input {
+  width: 50%;
+  margin-top: 27px;
+  margin-left: 0%;
+}
+div.checkbar-container .selected-btn {
+  margin-top: 27px;
+}
+div.checkbar-container .selected-btn:nth-child(2) {
+  margin-left: 2%;
+  margin-right: 20px;
+}
+
+/*# sourceMappingURL=checkbar.css.map */

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animate.css">
+    <title>测试</title>
+    <style>
+        
+
+    </style>
+</head>
+<body>
+<div id = "grandfather">
+    <father>
+        <template scope = "props" slot = "son2">
+            <son2  ></son2>
+        </template>
+    </father>
+</div>
+
+<template id = "father">
+    <!-- <son :pro = "father_val" @update = "turn"></son> -->
+    <div>
+        <slot name = "son2" :msg = "turn"></slot>
+    </div>
+    
+</template>
+
+<template id = "son">
+    <div class = "son" @click = "update">
+        这个是son的值{{ pro }}
+    </div>
+</template>
+
+<template id = "son2">
+    <div class = "son2" @click = "updates">
+        这个是son2的值{{ vak }}
+    </div>
+</template>
+    
+</body>
+<script src = "Vue/Vue_source/vue2.5.17.js"></script>
+<script>
+Vue.component("son2",{
+    template:"#son2",
+    data:function(){
+        return {
+            vak:"asd"
+        };
+    },
+    methods:{
+        updates(){
+            this.$emit("update",this.vak);
+        }
+    }
+    
+});
+
+Vue.component("son",{
+    template:"#son",
+    props:{
+        pro:""
+    },
+    data:function(){
+        return {
+            value:"from the son component!"
+        };
+    },
+    methods:{
+        update(){
+            this.$emit("update",this.value);
+        }
+    }
+});
+
+Vue.component("father",{
+    template:"#father",
+    data:function(){
+        return {
+            father_val:"AAAA"
+        };
+    },
+    methods:{
+        turn(val){
+            alert(val);
+        }
+    }
+});
+
+new Vue({
+    el:"#grandfather",
+});
+
+</script>
+</html>

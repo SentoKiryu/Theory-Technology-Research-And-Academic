@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animate.css">
+    <title>测试</title>
+    <style>
+        .kid1{ /*元素的原始状态*/
+            opacity: 1;
+            transform: translateX(30px);
+            border:2px hotpink solid;
+            height:150px;
+            width:150px;
+            background:pink;
+        }
+        .fxm-enter{ /*在元素插入之前生效，插入后的下一帧删除*/
+            opacity: 0; /**/
+            transform: translateX(0px);
+            border:2px skyblue solid; /**/
+            height:100px;   /**/
+            width:100px;    /**/
+            background:lightblue; /**/
+        }
+        .fxm-enter-to{ /*在元素插入的下一帧生效，与此同时v-enter删除，可能是先入为主的原因导致权值最高？*/
+            opacity: 1;
+            transform: translateX(30px);
+            border:2px hotpink solid;
+            height:150px;
+            width:150px;
+            background:pink;
+        }
+        .fxm-enter-active{ /*在元素插入之前生效，此时也有v-enter*/
+            width:80px;
+            transition: all 2s;
+        }
+        .fxm-leave{
+            opacity: 1;
+            transform: translateX(30px);
+            border:2px hotpink solid;
+            height:150px;
+            width:150px;
+            background:pink;
+        }
+        .fxm-leave-to{
+            transform: translateX(0px);
+            opacity: 0;
+            border:2px skyblue solid;
+            height:100px;
+            width:100px;
+            background:lightblue;
+        }
+        .fxm-leave-active{
+            height:80px;
+            transition: all 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent" id = "app">
+        <button @click = "show = !true">fade</button>
+        <transition name = "fxm" >
+            <div class="kid1" v-show = "show">这是内容</div>
+        </transition>
+    </div>
+</body>
+<script src = "Vue/Vue_source/vue2.5.17.js"></script>
+<script>
+</script>
+</html>

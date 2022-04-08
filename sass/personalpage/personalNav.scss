@@ -1,0 +1,251 @@
+/* ！！！css与sass绑定，如需改动css需要记录下最终变化！！！ */
+@mixin box-shadow($x,$y,$vague,$color){
+    -webkit-box-shadow:$x $y $vague $color;
+    -moz-box-shadow:$x $y $vague $color;
+    -o-box-shadow:$x $y $vague $color;
+    box-shadow:$x $y $vague $color;
+}
+@mixin border-radius($top,$bottom){
+    -webkit-border-top-left-radius: $top;
+    -moz-border-top-left-radius: $top;
+    -o-border-top-left-radius: $top;
+    border-top-left-radius: $top;
+    -webkit-border-top-right-radius: $top;
+    -moz-border-top-right-radius: $top;
+    -o-border-top-right-radius: $top;
+    border-top-right-radius: $top;
+    -webkit-border-bottom-left-radius: $bottom;
+    -moz-border-bottom-left-radius: $bottom;
+    -o-border-bottom-left-radius: $bottom;
+    border-bottom-left-radius: $bottom;
+    -webkit-border-bottom-right-radius: $bottom;
+    -moz-border-bottom-right-radius: $bottom;
+    -o-border-bottom-right-radius: $bottom;
+    border-bottom-right-radius: $bottom;
+}
+
+nav.personal-nav-a{ /*登陆后未滚动出的导航栏样式*/
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:800;
+    height:50px;
+    width:100%;
+    background:rgba(black,.7);
+    ul.nav-main-contents{ /*nav无序列表*/
+        // position: absolute;
+        // left:50%;
+        // transform:translateX(-50%); 
+        // height:100%;
+        // width:1519px;
+        list-style:none;
+        color:white;
+        %li-char{
+            float:left;
+            margin:15px;
+            font-size:1em;
+            transition:color .3s;
+            cursor: pointer;
+            &:hover {
+                color:rgba(orange,1);
+                div.plus-level-1{
+                    color:white;
+                }
+            }
+        }
+        %li-img{
+            float:left; //默认为左侧部分，需要换时需重新声明float:right
+            margin: {
+                left:15px;
+                right:15px;
+                top:5px;
+            }
+            height:40px;
+            width:40px;
+            border:0px gray solid;
+            transition:border .3s,box-shadow .3s;
+            &:hover{
+                border:0px orange solid;
+                @include box-shadow(0px,0px,5px,orange);
+            }
+            @include border-radius(50px,50px);
+        }
+        li.char{
+            & a{
+                text-decoration: none;
+                color:white;
+                transition:color .3s;
+                &:hover{
+                    color:orange;
+                }
+            }
+            @extend %li-char;
+            &.plus{
+                position: relative;
+                float:right !important;
+                margin:  {
+                    right:5px;
+                    left:5px;
+                }
+                &.smal{
+                    font-size:0.2em;
+                }
+                div.plus-level-1{
+
+                    @include box-shadow(0px,0px ,5px ,hotpink);
+
+                    li{
+                        transition: all .2s;
+                    }
+                    
+                    & li:hover {
+                        color:orangered;
+                    }
+                    height:76px;
+                    width:100px;
+                    position: absolute;
+                    left:-20px;
+                    bottom:-91px;
+                    z-index:400;
+                    background:hotpink;
+                    &:hover{
+                        &{
+                            color:white
+                        }
+
+                        background:hotpink;
+                    }
+                    ul{
+                        list-style:none;
+                        li{
+                            margin:12px;
+                            letter-spacing: 5px;
+                            &:hover {
+                                color:orange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        li > img.logo{
+            margin-right:10%; //暂定10%，后来需按照logo长度进行调节
+            @extend %li-img;
+            @at-root li > img.profile { // 这样写不好，一下子跳到根元素了
+                @extend %li-img;
+                float:right !important; // 在sass中继承的权值好像非常高
+            }
+        }
+    }
+}
+nav.personal-nav-b{ /*登陆后滚动出的导航栏样式*/
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:800;
+    height:50px;
+    width:100%;
+    background:rgba(white,.7);
+    border-bottom:0px #888888 solid;
+    @include box-shadow(0px,1px,3px,#888888);
+    ul.nav-main-contents{ /*nav无序列表*/
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%); 
+        height:100%;
+        width:1519px;
+        list-style:none;
+        background:white;
+        %li-char{
+            color:black;
+            float:left;
+            margin:15px;
+            font-size:1em;
+            transition:color .3s;
+            cursor: pointer;
+            &:hover {
+                color:rgba(orange,1);
+                div.plus-level-1{
+                    color:white;
+                }
+            }
+        }
+        %li-img{
+            float:left; //默认为左侧部分，需要换时需重新声明float:right
+            margin: {
+                left:15px;
+                right:15px;
+                top:5px;
+            }
+            height:40px;
+            width:40px;
+            border:0px gray solid;
+            transition:border .3s,box-shadow .3s;
+            &:hover{
+                border:0px orange solid;
+                @include box-shadow(0px,0px,5px,orange);
+            }
+            @include border-radius(50px,50px);
+        }
+        li.char{
+            @extend %li-char;
+            &.plus{
+                position: relative;
+                float:right !important;
+                margin:  {
+                    right:5px;
+                    left:5px;
+                }
+                &.smal{
+                    font-size:0.2em;
+                }
+                div.plus-level-1{
+                    display:none;
+                    li{
+                        transition: all .2s;
+                    }
+                    
+                    & li:hover {
+                        color:orangered;
+                    }
+                    height:76px;
+                    width:100px;
+                    // position: absolute;
+                    // left:-20px;
+                    // bottom:-91px;
+                    position: fixed;
+                    left: 1392px;
+                    top: 50px;
+                    background:black;
+                    &:hover{
+                        &{
+                            color:white
+                        }
+
+                        background:hotpink;
+                    }
+                    ul{
+                        list-style:none;
+                        li{
+                            margin:12px;
+                            letter-spacing: 5px;
+                            &:hover {
+                                color:orangered;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        li > img.logo{
+            margin-right:10%; //暂定10%，后来需按照logo长度进行调节
+            @extend %li-img;
+            @at-root li > img.profile { // 这样写不好，一下子跳到根元素了
+                @extend %li-img;
+                float:right !important; // 在sass中继承的权值好像非常高
+            }
+        }
+    }
+}
+

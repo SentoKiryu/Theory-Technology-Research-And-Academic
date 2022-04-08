@@ -1,0 +1,202 @@
+@charset "UTF-8";
+.nav-container {
+  position: fixed; }
+
+.nav-container {
+  width: 100%;
+  z-index: 900;
+  /*遮罩层是1000*/ }
+
+.nav {
+  height: 100px;
+  width: 100%;
+  background: rgba(230, 230, 230, 0);
+  margin-top: 0px;
+  -webkit-transition: height 0.5s ease,background 0.5s ease;
+  transition: height 0.5s ease,background 0.5s ease; }
+  .nav ul {
+    list-style: none; }
+    .nav ul li {
+      font-size: 1.5em;
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 15px;
+      margin-top: 35px;
+      margin-right: 15px;
+      transition: margin 0.5s ease,color 0.5s;
+      color: white; }
+      .nav ul li:hover {
+        color: orange; }
+      .nav ul li.left {
+        float: left; }
+      .nav ul li.right {
+        float: right; }
+
+img.img-homepage {
+  -webkit-box-shadow: 0px 2px 2px #888888;
+  -moz-box-shadow: 0px 2px 2px #888888;
+  -o-box-shadow: 0px 2px 2px #888888;
+  box-shadow: 0px 2px 2px #888888;
+  width: 100%;
+  height: 60%; }
+
+div.no1 {
+  font-size: 5em; }
+
+div.register, div.login {
+  display: none;
+  position: absolute;
+  z-index: 1100;
+  top: -560px;
+  left: 50%;
+  transform: translate(-50%, 0px); }
+
+div.register {
+  margin: auto;
+  height: 550px;
+  width: 600px;
+  border: 0px white solid;
+  text-align: center;
+  background: white;
+  -webkit-box-shadow: 0 0 10px #888888;
+  -moz-box-shadow: 0 0 10px #888888;
+  -o-box-shadow: 0 0 10px #888888;
+  box-shadow: 0 0 10px #888888;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-top-left-radius: 10px;
+  -o-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  -o-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-bottom-left-radius: 10px;
+  -o-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-bottom-right-radius: 10px;
+  -o-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px; }
+  div.register h2 {
+    font-weight: 400;
+    letter-spacing: 1em;
+    margin-top: 20px;
+    padding-top: 30px; }
+  div.register div.form-container {
+    margin-top: 40px; }
+    div.register div.form-container form.register-form [class|="reg"] {
+      width: 250px; }
+    div.register div.form-container form.register-form div.center > div {
+      width: 370px;
+      height: 40px;
+      margin: auto; }
+      div.register div.form-container form.register-form div.center > div label {
+        padding: 0px;
+        letter-spacing: 0.1em; }
+    div.register div.form-container form.register-form .reg-subbtn {
+      margin-left: 0px !important; }
+    div.register div.form-container form.register-form .disabled_btn {
+      background: #888888 !important;
+      border: 0px #888888 solid !important;
+      cursor: wait;
+      -webkit-box-shadow: 0 0 0 #888888;
+      -moz-box-shadow: 0 0 0 #888888;
+      -o-box-shadow: 0 0 0 #888888;
+      box-shadow: 0 0 0 #888888; }
+    div.register div.form-container form.register-form img.identify-img {
+      margin-left: 0px;
+      height: 180px;
+      height: 90px; }
+
+div.login {
+  margin: auto;
+  height: 550px;
+  width: 600px;
+  border: 0px white solid;
+  text-align: center;
+  background: white;
+  -webkit-box-shadow: 0 0 10px #888888;
+  -moz-box-shadow: 0 0 10px #888888;
+  -o-box-shadow: 0 0 10px #888888;
+  box-shadow: 0 0 10px #888888;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-top-left-radius: 10px;
+  -o-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  -o-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-bottom-left-radius: 10px;
+  -o-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-bottom-right-radius: 10px;
+  -o-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px; }
+  div.login h2 {
+    font-weight: 400;
+    letter-spacing: 1em;
+    padding-top: 50px; }
+  div.login div.form-container {
+    margin-top: 50px; }
+    div.login div.form-container form.login-form [class|="log"] {
+      width: 250px; }
+    div.login div.form-container form.login-form div.center > div {
+      width: 370px;
+      height: 40px;
+      margin: auto; }
+      div.login div.form-container form.login-form div.center > div label {
+        padding: 0px;
+        letter-spacing: 0.1em; }
+    div.login div.form-container form.login-form .log-subbtn {
+      margin-left: 0px !important; }
+    div.login div.form-container form.login-form img.identify-img {
+      margin-left: 0px;
+      height: 180px;
+      height: 90px;
+      cursor: pointer; }
+
+div.mask {
+  /*遮罩层*/
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(85, 85, 85, 0.8); }
+
+.nav-shrink {
+  /*未用上待寻找方法*/
+  animation: navactive-shrink 0.5s ease forwards; }
+
+.nav-expend {
+  /*未用上待寻找方法*/
+  animation: navactive-expend 0.5s ease forwards; }
+
+@keyframes navactive-shrink {
+  /*未用上待寻找方法*/
+  from {
+    height: 100px;
+    background: rgba(230, 230, 230, 0.4); }
+  to {
+    height: 65px;
+    background: rgba(85, 85, 85, 0.8); } }
+@keyframes navactive-extend {
+  /*未用上待寻找方法*/
+  from {
+    height: 65px;
+    background: rgba(85, 85, 85, 0.8); }
+  to {
+    height: 100px;
+    background: rgba(230, 230, 230, 0.4); } }
+h1.placeholder {
+  width: 100%;
+  height: 1800px;
+  color: white;
+  padding: 50px;
+  background: #888888; }

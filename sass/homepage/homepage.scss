@@ -1,0 +1,257 @@
+%relative{
+    position:relative;
+}
+%fixed{
+    position:fixed;
+}
+%absolute{
+    position:absolute;
+}
+@mixin box-shadow($x,$y,$vague,$color){
+    -webkit-box-shadow:$x $y $vague $color;
+    -moz-box-shadow:$x $y $vague $color;
+    -o-box-shadow:$x $y $vague $color;
+    box-shadow:$x $y $vague $color;
+}
+@mixin border-radius($top,$bottom){
+    -webkit-border-top-left-radius: $top;
+    -moz-border-top-left-radius: $top;
+    -o-border-top-left-radius: $top;
+    border-top-left-radius: $top;
+    -webkit-border-top-right-radius: $top;
+    -moz-border-top-right-radius: $top;
+    -o-border-top-right-radius: $top;
+    border-top-right-radius: $top;
+    -webkit-border-bottom-left-radius: $bottom;
+    -moz-border-bottom-left-radius: $bottom;
+    -o-border-bottom-left-radius: $bottom;
+    border-bottom-left-radius: $bottom;
+    -webkit-border-bottom-right-radius: $bottom;
+    -moz-border-bottom-right-radius: $bottom;
+    -o-border-bottom-right-radius: $bottom;
+    border-bottom-right-radius: $bottom;
+}
+
+.nav-container{
+    @extend %fixed; 
+    width:100%;
+    z-index:900; /*遮罩层是1000*/
+}
+
+.nav{
+    height:100px;
+    width:100%;
+    background:rgba(230,230,230,0);
+    margin: {
+        top:0px;
+    }
+    -webkit-transition:height 0.5s ease,background 0.5s ease;
+    transition:height 0.5s ease,background 0.5s ease;
+    ul{
+        list-style:none;
+        li{
+            font: {
+                size:1.5em;
+            }
+            display:inline-block;
+            cursor: pointer;
+            margin: {
+                left:15px;
+                top:35px;
+                right:15px;
+            }
+            transition:margin 0.5s ease,color 0.5s;
+            color:white;
+            &:hover{
+                color:orange;
+            }
+            &.left{
+                float:left;
+            }
+            &.right{
+                float:right;
+            }
+        }
+    }
+}
+
+img.img-homepage{
+    @include box-shadow(0px,2px,2px,#888888);
+    width:100%;
+    height:60%;
+}
+
+div.no1{
+    font-size:5em;
+}
+
+%register-position{
+    display:none;
+    position: absolute;
+    z-index:1100;
+    top:-560px;
+    left:50%;
+    transform:translate(-50%,0px);
+}
+
+div.register{
+    margin:auto;
+    height:550px;
+    width:600px;
+    border:0px white solid;
+    text-align:center;
+    background:white;
+    @extend %register-position;
+    @include box-shadow(0,0,10px,#888888);
+    @include border-radius(10px,10px);
+    h2{
+        font-weight: 400;
+        letter-spacing: 1em;
+        margin-top:20px;
+        padding: {
+            top:30px;
+        }
+    }
+    div.form-container{
+        // border:2px green solid;
+        margin-top:40px;
+        form.register-form {
+            // border:1px red solid;
+            [class |= "reg"]{
+                width:250px;
+            }
+            div.center{
+                 & > div {
+                    width:370px;
+                    height:40px;
+                    margin:auto;
+                    // border:2px rgb(5, 5, 7) solid;
+                    label{
+                        padding:0px;
+                        letter-spacing: 0.1em;
+                    }
+                }
+            }
+            .reg-subbtn{
+                margin-left:0px !important;
+            }
+            .disabled_btn{
+                background:#888888 !important;
+                border:0px #888888 solid !important;
+                cursor:wait;
+                @include box-shadow(0,0,0,#888888);
+            }
+            img.identify-img{
+                margin-left:0px;
+                height:180px;
+                height:90px;
+            }
+            
+        }
+    }
+    
+}
+
+div.login{
+    margin:auto;
+    height:550px;
+    width:600px;
+    border:0px white solid;
+    text-align:center;
+    background:white;
+    @extend %register-position;
+    @include box-shadow(0,0,10px,#888888);
+    @include border-radius(10px,10px);
+    h2{
+        font-weight: 400;
+        letter-spacing: 1em;
+        padding: {
+            top:50px;
+        }
+    }
+    div.form-container{
+        // border:2px green solid;
+        margin-top:50px;
+        form.login-form {
+            // border:1px red solid;
+            [class |= "log"]{
+                width:250px;
+            }
+            div.center{
+                 & > div {
+                    width:370px;
+                    height:40px;
+                    margin:auto;
+                    // border:2px rgb(5, 5, 7) solid;
+                    label{
+                        padding:0px;
+                        letter-spacing: 0.1em;
+                    }
+                }
+            }
+            .log-subbtn{
+                margin-left:0px !important;
+            }
+            img.identify-img{
+                margin-left:0px;
+                height:180px;
+                height:90px;
+                cursor: pointer;
+            }
+            
+        }
+    }
+    
+}
+
+div.mask{ /*遮罩层*/
+    display:none;
+    position:fixed;
+    z-index:1000;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height:100%;
+    background:rgba(85,85,85,.8);
+}
+
+
+
+
+.nav-shrink{ /*未用上待寻找方法*/
+    animation: navactive-shrink 0.5s ease forwards;
+}
+.nav-expend{ /*未用上待寻找方法*/
+    animation: navactive-expend 0.5s ease forwards;
+}
+
+@keyframes navactive-shrink{ /*未用上待寻找方法*/
+    from{
+        height:100px;
+        background:rgba(230,230,230,.4);
+    }
+    to{
+        height:65px;
+        background:rgba(85,85,85,.8);
+    }
+}
+@keyframes navactive-extend{ /*未用上待寻找方法*/
+    from{
+        height:65px;
+        background:rgba(85,85,85,.8);
+    }
+    to{
+        height:100px;
+        background:rgba(230,230,230,.4);
+    }
+}
+
+h1.placeholder{
+    width:100%;
+    height:1800px;
+    color:white;
+    padding:50px;
+    background:#888888;
+}
+
+

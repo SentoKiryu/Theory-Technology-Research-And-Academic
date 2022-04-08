@@ -1,0 +1,104 @@
+@import "../mixins.scss";
+
+@mixin cla-box($width,$color){
+    vertical-align: top;
+    display:inline-block;
+    height:95%; 
+    width:49%;
+    border:$width $color solid;
+}
+
+
+
+
+
+.classified-container{
+    // border:green 2px solid;
+    // height:150px;
+    
+    ul{
+        height:100%;
+        width:100%;
+        list-style:none;
+        li{
+            @include box-shadow(0px,0px,3px,#888888);
+            @include border-radius(5px,5px);
+            height:150px;
+            margin-bottom:8px;
+            transition:box-shadow .5s;
+            &:hover{
+                @include box-shadow(0px,0px,20px,gray);
+            }
+            div.cla-left{
+                @include cla-box(0px,red);
+                padding:20px;
+                h2.cla-title{
+                    font: {
+                        size:1.3em; 
+                        weight:550;
+                    }
+                }
+                h3.cla-keywords{
+                    margin-top:10px;
+                    font: {
+                        size:1em;
+                        weight:900;
+                    }
+                    color:darkorange;
+                    span{
+                        display:inline-block;
+                        margin: {
+                            right:15px;
+                        }
+                        padding: {
+                            // left:5px;
+                        }   
+                    }
+                }
+                h3.cla-resume{
+                    margin: {
+                        top:10px;
+                    }
+                    font: {
+                        size:1em;
+                    }
+                }
+                h4.cla-type-num{
+                    margin-top:20px;
+                    span{
+                        font-size:0.8em;
+                        &.num-id{
+                           position: absolute;
+                           left:271px;
+                        }
+                    }
+
+                }
+
+            }
+            div.cla-right{
+                @include cla-box(0px,blue);
+                div.cla-img-box{
+                    height:100%;
+                    width:100%;
+                    position:relative;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%,-50%);
+                    img[class |= "cla-img"]{
+                        @include border-radius(0px,0px);
+                        border:2px #888888 solid;
+                        margin-top:5px;
+                        height:90%;
+                        width:45%;
+                    }
+                    img.cla-img-1{
+                        margin-left:10px;
+                    }
+                }
+            }
+                
+        }
+    }
+   
+}

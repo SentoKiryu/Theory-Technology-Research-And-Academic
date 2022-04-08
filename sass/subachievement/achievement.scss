@@ -1,0 +1,248 @@
+@import "../mixins.scss";
+div.placeholder{
+    border:2px black dotted;
+    height:1800px;
+    width:1200px;
+}
+
+/********************************↑ placeholder ↑**********************************/
+.cue-enter{
+    height:0px !important;
+    padding:0px;
+    border:0px;
+    overflow: hidden;
+}
+.cue-enter-to{
+    height:52px;
+}
+.cue-enter-active{
+    transition:all 1s;
+}
+.cue-leave{
+    height:52px;
+}
+.cue-leave-active{
+    transition:all 1s;
+}
+.cue-leave-to{
+    height:0px !important;
+    padding:0px;
+    border:0px;
+    overflow: hidden;
+}
+
+/*****************************↑ Vue Transition Animation ↑***************************/
+@mixin text-edi($name,$a:0){
+    .title{
+        margin:10px 0px;
+    }
+    div.#{$name}-edi{
+        height:250px;
+        .w-e-toolbar{
+            width:100%;
+            background:#CCCCCC;
+            @if $a == 0{
+                .w-e-menu{
+                    display:block;
+                }
+            } @else {
+                .w-e-menu{
+                    display:none;
+                    &:nth-child(#{$a}){
+                        display:inline-block;
+                    }
+                }
+            }
+        }
+        ##{$name}-edi-text{
+            height:220px;
+        }
+        .w-e-text{
+            overflow: auto;
+        }
+    }
+}
+/****************************↑ @mixin & %extend ↑*********************************/
+div.main-container
+{
+    position:relative;
+    top:210px;
+    left:50%;
+    transform:translateX(-50%);
+    // border:2px black dotted;
+    height:1800px;
+    width:1200px;
+    div.pagedescribe{
+        // border: 2px red solid;
+        position:absolute;
+        top:-150px;
+        left:0px;
+        h1{
+            color:orange;
+        }
+    }
+    .type-btn{
+        position:relative;
+        left:201px !important;
+        top:-45px;
+        width:100px;
+        button{
+            width:100%;
+        }
+    }
+    div.title{
+        font-weight: 700;
+        margin-bottom:20px;
+        input{
+            font-weight: 700;
+            width:250px;
+            margin-left:40px;
+        }
+    }
+    div.keywords{
+        ul.keywords-list {
+            list-style:none;
+            li{
+                font-weight: 700;
+                display:inline-block;
+            }
+        }
+    }
+    div.resume{ 
+        // padding-top:5px;
+        // border: 2px hotpink solid;
+        position:relative;
+        margin: {
+            bottom:20px;
+        }  
+        @include border-radius(7px,7px);
+        @include box-shadow(0px,0px,10px,#888888);
+        @include text-edi(resume);
+    }
+    div.detail{
+        // border: 2px orangered solid;
+        position:relative;
+        margin: {
+            bottom:20px;
+        }  
+        @include border-radius(7px,7px);
+        @include box-shadow(0px,0px,10px,#888888);
+        @include text-edi(detail);
+    }
+    div.acquaintances {
+        // border:2px skyblue solid;
+        position:relative;
+        margin: {
+            bottom:20px;
+        } 
+        @include border-radius(7px,7px); 
+        @include box-shadow(0px,0px,10px,#888888);
+        @include text-edi(acquaintances);
+    }
+    div.pic {
+        position:relative;
+        border:0px white solid;
+        margin: {
+            bottom:20px;
+        }  
+        @include border-radius(7px,7px); 
+        @include box-shadow(0px,0px,10px,#888888);
+        @include text-edi(pic,15);
+    }
+    div.save-submit{
+        position: relative;
+        width:95px;
+        left:50%;
+        top:0px;
+        transform: translateX(-50%);
+    }
+}
+
+.cue {
+    height:50px;
+    margin-bottom:0px !important;
+}
+
+/*******************************临时补充待整合***********************************/
+li.level-1:hover ul.level-2{
+    opacity: 1;
+    background:white;
+    display:block;
+    border:1px #CCCCCC solid;
+    box-shadow: 0px 5px 5px #cccccc;
+    width:150px;
+    border-radius:4px;
+}
+ul.level-2{
+    display:none;
+    /* position: absolute;
+    left:170px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;         */
+}
+ul.level-2.a{
+    z-index:100;
+    position: absolute;
+    left:170px;
+    top:0px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;        
+}
+ul.level-2.b{
+    position: absolute;
+    left:170px;
+    top:27px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;        
+}
+ul.level-2.c{
+    position: absolute;
+    left:170px;
+    top:56px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;        
+}
+ul.level-2.d{
+    position: absolute;
+    left:170px;
+    top:83px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;        
+}
+ul.level-2.e{
+    position: absolute;
+    left:170px;
+    top:110px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;        
+}
+ul.level-2.f{
+    position: absolute;
+    left:170px;
+    top:137px;
+    list-style:none;
+    padding:0px !important;
+    opacity: 0;
+    transition:opacity .5s;        
+}
+
+ul.level-2 > li{
+    transition:all .5s;  
+    margin:0px;
+    padding:5px 20px;
+}
+ul.level-2 > li:hover {
+    background: #888888;
+}

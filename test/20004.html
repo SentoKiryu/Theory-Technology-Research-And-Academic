@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animate.css">
+    <title>测试</title>
+    <script src = "JQuery/jquery-3.2.1.min.js"></script>
+    <style>
+        .white{
+            height:30px;
+            width:100px;
+            background:skyblue
+        }
+        /* .a-leave{
+
+        } */
+
+        .a-leave-to{
+            
+            height:0px;
+            width:0px;
+        }
+
+        .a-leave-active{
+            transition:all .5s;
+            opacity:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+            <input v-model = "val" type = "text" id = "a"/>
+        
+    </div>
+
+    <!-- <template id = "test">
+        <div>
+
+                <transition-group name = "a">
+            <div class="white" v-for = "(item,index) in items" @click ="del(index)" :key = "index">{{ item }} || {{ index }}</div>
+        </transition-group>
+        
+        
+        </div>
+    </template> -->
+    
+
+
+</body>
+<script src = "Vue/Vue_source/vue2.5.17.js"></script>
+<!-- <script src="js/test2.js"></script> -->
+<!-- <script src = "js/test.js"></script> -->
+<script src = "wangEditor-3.1.1/wangEditor.min.js"></script>
+<script>
+    // document.getElementById("a").value();
+    Vue.component("test",{
+        template:"#test",
+        data:function(){
+            return {
+                items:[1,2,3,4,5],
+                
+            };
+        },
+        methods:{
+            del(index){
+                this.items.splice(index,1);
+                console.log(this.items);
+            }
+        },
+        mounted(){
+            console.log(this.items);
+        }
+    });
+
+   new Vue({
+       el:"#app",
+       data:{
+           title:{
+               a:""
+           },
+           val:"abc"
+       },
+       methods:{
+           chang(){
+               if(this.title.a == ""){
+                   alert("空的a ");
+               }
+           }
+       }
+   });
+   console.log(document.getElementById("a").value);
+</script>
+</html>
